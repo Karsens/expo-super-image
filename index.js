@@ -1,3 +1,4 @@
+import React from "react";
 import { connect, Provider } from "react-redux";
 import { SuperImage } from "./SuperImage";
 import { store } from "./Store";
