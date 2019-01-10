@@ -1,0 +1,9 @@
+{
+  "name": "SuperImage",
+  "version": "1.0.0",
+  "description": "Image with SuperPowers",
+  "main": "index.js",
+  "repository": "https://github.com/EAT-CODE-KITE-REPEAT/react-native-super-image",
+  "author": "Wijnand Karsens <wijnandworld@hotmail.com>",
+  "license": "MIT"
+}
