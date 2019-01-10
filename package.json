@@ -1,8 +1,8 @@
 {
   "name": "react-native-super-image",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Image with SuperPowers",
-  "main": "index.tsx",
+  "main": "index.js",
   "repository": "https://github.com/EAT-CODE-KITE-REPEAT/react-native-super-image",
   "author": "Wijnand Karsens <wijnandworld@hotmail.com>",
   "license": "MIT",
