@@ -1,7 +1,8 @@
 import React from "react";
 import { connect, Provider } from "react-redux";
 import { SuperImage } from "./SuperImage";
-import { store } from "./Store";
+import { store, persistor } from "./Store";
+import { PersistGate } from "redux-persist/es/integration/react";
 
 const mapStateToProps = ({ images }) => {
   return { images };
@@ -16,7 +17,9 @@ const ConnectedSuperImage = connect(
 )(SuperImage);
 
 export default props => (
-  <Provider store={store}>
-    <ConnectedSuperImage {...props} />
-  </Provider>
+  <PersistGate persistor={persistor}>
+    <Provider store={store}>
+      <ConnectedSuperImage {...props} />
+    </Provider>
+  </PersistGate>
 );

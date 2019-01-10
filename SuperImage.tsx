@@ -3,7 +3,7 @@ import { View, Image } from "react-native";
 import ImageLoader from "./ImageLoader";
 
 const VERSION = 1;
-const LOGGING = true;
+const LOGGING = false;
 
 export type ImageProps = {
   remoteUri: string;
@@ -14,13 +14,21 @@ export type ImageProps = {
 
 type Props = {
   images: { images: ImageProps[]; version: number };
-  expo: React.Element;
+  expo: any;
   animated: boolean;
   source: { uri: string };
+  style?: any;
   dispatch: ({ type, value }: { type: string; value: any }) => void;
+  width?: number | string;
+  height?: number | string;
 };
 
-class SuperImage extends React.Component<Props> {
+type State = {
+  uri: string;
+  image?: ImageProps;
+};
+
+class SuperImage extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = { uri: null };
@@ -245,9 +253,9 @@ class SuperImage extends React.Component<Props> {
     let alteredStyle = undefined;
     if (width && height && image) {
       if (width === "auto") {
-        width2 = Math.floor((height / image.height) * image.width);
+        width2 = Math.floor((Number(height) / image.height) * image.width);
       } else if (height === "auto") {
-        height2 = Math.floor((width / image.width) * image.height);
+        height2 = Math.floor((Number(width) / image.width) * image.height);
       }
 
       const originalStyle = {

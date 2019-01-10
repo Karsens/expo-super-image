@@ -1,6 +1,6 @@
 import { AsyncStorage } from "react-native";
 import { createStore, compose } from "redux";
-import { persistCombineReducers } from "redux-persist";
+import { persistStore, persistCombineReducers } from "redux-persist";
 import { imageReducer } from "./Reducer";
 
 const config = {
@@ -15,6 +15,6 @@ const reducers = {
 
 const rootReducer = persistCombineReducers(config, reducers);
 const store = createStore(rootReducer, compose());
-// const persistor = persistStore(store);
+const persistor = persistStore(store);
 
-export { store };
+export { store, persistor };

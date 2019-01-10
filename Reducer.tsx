@@ -19,7 +19,7 @@ export const imageReducer = (state: ImageReducer = initImages, action) => {
     }
     case "REMOVE_IMAGE": {
       return {
-        images: state.images.filter(s => s.remoteUrl !== action.value),
+        images: state.images.filter(s => s.remoteUri !== action.value),
         version: state.version
       };
     }
