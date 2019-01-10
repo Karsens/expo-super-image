@@ -1,10 +1,10 @@
-# reac-native-super-image
-React Native Super Image: Image component with optional additional cool stuff
+# React Native Super Image
+React Native Super Image: Image component with Super Powers!
 
-* animation loading
-* downloading and caching image in the background
-* showing default background color before loading
-* option to resize to 100% height or width, keeping image ratio
+* Animation loading
+* Downloading and caching image in the background
+* Showing default background color before loading
+* Option to resize to 100% height or width, keeping image ratio
 
 ## Install
 `yarn add react-native-super-image`
@@ -26,4 +26,4 @@ const SuperImage = props => RNSuperImage({ ...props, expo });
 * heigh (optional)t: number or "auto". overwrites style-height. If set to auto, it calculates the height based on width and image ratio
 
 ## Contribute
-Contact me or submit an issue if you have ideas or want to collaborate
+Contact me or submit an issue if you have ideas or want to collaborate / contribute
