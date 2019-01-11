@@ -11,8 +11,6 @@ class ImageLoader extends React.Component {
     return (
       <Animated.Image
         onLoad={() => {
-          // console.log("loadedTimes", this.state.loadedTimes + 1);
-
           this.setState({ loadedTimes: this.state.loadedTimes + 1 });
           if (this.state.loadedTimes === 0) {
             // only do animation once. once url refreshes and image loaded again, it's not needed.

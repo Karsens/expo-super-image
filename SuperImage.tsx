@@ -53,16 +53,6 @@ class SuperImage extends React.Component<Props, State> {
     }
   }
 
-  // why decide on uri again? think it's not necessary
-  //   async componentWillReceiveProps(props: Props) {
-  //     const {
-  //       source: { uri }
-  //     } = props;
-  //     if (uri) {
-  //       this.decideOnUri(uri);
-  //     }
-  //   }
-
   async decideOnUri(uri: string) {
     this.purgeIfNewVersion();
     const inStore = await this.findWorkingImageInStore(uri);
@@ -173,7 +163,7 @@ class SuperImage extends React.Component<Props, State> {
     ext: string | undefined = undefined,
     attempt: number = 1
   ) {
-    const FileSystem = this.props.expo.FileSystem;
+    const { FileSystem } = this.props.expo;
     if (FileSystem) {
       if (attempt >= 10) {
         console.log(
@@ -184,18 +174,18 @@ class SuperImage extends React.Component<Props, State> {
 
       const defaultExt = "jpg";
 
-      const extension = uri && uri.split(".").pop();
-      const extension2 =
+      let extension = uri && uri.split(".").pop();
+      extension =
         extension && (extension.length > 5 || extension.length < 2)
           ? defaultExt
           : extension;
-      const extension3 = ext ? ext : extension2;
+      extension = ext ? ext : extension;
 
       const imageName = Math.round(Math.random() * 1000000);
 
       return FileSystem.downloadAsync(
         uri,
-        FileSystem.documentDirectory + imageName + "." + extension3
+        FileSystem.documentDirectory + imageName + "." + extension
       )
         .then(res => {
           const headers = res.headers;
@@ -209,7 +199,7 @@ class SuperImage extends React.Component<Props, State> {
 
           const result = {
             uri: res.uri,
-            givenExtension: extension3,
+            givenExtension: extension,
             extension: extensions && extensions[1]
           };
 
